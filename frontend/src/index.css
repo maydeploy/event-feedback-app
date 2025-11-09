@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-text-primary font-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply text-h1 font-serif text-text-primary;
+  }
+
+  h2 {
+    @apply text-h2 font-serif text-text-primary;
+  }
+
+  h3 {
+    @apply text-h3 font-serif text-text-primary;
+  }
+}
+
+@layer components {
+  /* Grid paper background */
+  .grid-background {
+    background-image:
+      linear-gradient(rgba(208, 204, 199, 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(208, 204, 199, 0.25) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Subtle grid for mobile */
+  .grid-background-mobile {
+    background-image:
+      linear-gradient(rgba(208, 204, 199, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(208, 204, 199, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Card with rotation effect */
+  .card-stamp {
+    @apply bg-white shadow-card rounded-card p-5 transition-all duration-250;
+    transform: rotate(var(--rotation, 0deg));
+  }
+
+  .card-stamp:hover {
+    @apply shadow-card-hover;
+    transform: rotate(var(--rotation, 0deg)) translateY(-4px);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply bg-burnt-orange text-white px-6 py-3 rounded-button font-serif;
+    @apply transition-all duration-250 hover:bg-opacity-90 hover:scale-105;
+    @apply focus:outline-none focus:ring-2 focus:ring-burnt-orange focus:ring-offset-2;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply border border-burnt-orange text-burnt-orange px-6 py-3 rounded-button font-serif;
+    @apply transition-all duration-250 hover:bg-burnt-orange hover:text-white;
+    @apply focus:outline-none focus:ring-2 focus:ring-burnt-orange focus:ring-offset-2;
+  }
+
+  /* Tag chip */
+  .tag-chip {
+    @apply px-2 py-1 rounded-chip text-sm;
+    @apply transition-all duration-200 hover:brightness-95;
+  }
+
+  /* Form input */
+  .form-input {
+    @apply w-full p-3 border border-grid-gray rounded bg-white;
+    @apply focus:outline-none focus:border-burnt-orange focus:ring-2 focus:ring-burnt-orange focus:ring-opacity-20;
+    @apply transition-all duration-200;
+  }
+
+  /* Text area with grid background */
+  .form-textarea {
+    @apply form-input grid-background-mobile;
+    resize: vertical;
+  }
+
+  /* Status badge */
+  .status-badge {
+    @apply inline-block px-3 py-1 rounded-chip text-sm font-handwritten;
+  }
+
+  /* Bottom tab navigation */
+  .bottom-tab {
+    @apply flex flex-col items-center justify-center py-2 px-4 transition-colors duration-200;
+    @apply text-text-secondary;
+  }
+
+  .bottom-tab.active {
+    @apply text-burnt-orange;
+  }
+}
+
+@layer utilities {
+  /* Rotation utilities for card stamps */
+  .rotate-neg-2 {
+    transform: rotate(-2deg);
+  }
+
+  .rotate-neg-1 {
+    transform: rotate(-1deg);
+  }
+
+  .rotate-1 {
+    transform: rotate(1deg);
+  }
+
+  .rotate-2 {
+    transform: rotate(2deg);
+  }
+
+  /* Focus visible for accessibility */
+  .focus-visible {
+    @apply outline-none ring-2 ring-burnt-orange ring-offset-2;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D0CCC7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E8573E;
+}
